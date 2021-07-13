@@ -1,0 +1,41 @@
+{
+  "author": "Vaibhav Boliya",
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "css": ["fix.css"],
+      "js": ["content.bundle.js"],
+      "matches": ["https://meet.google.com/*"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "description": "Google Meet Attendance Monitor",
+  "externally_connectable": {
+    "matches": ["*://meet.google.com/*"]
+  },
+  "icons": {
+    "128": "icon/icon.png",
+    "16": "icon/icon.png",
+    "48": "icon/icon.png"
+  },
+
+  "manifest_version": 2,
+  "name": "CMS Attendance",
+  "page_action": {
+    "default_icon": {
+      "128": "icon/icon.png",
+      "16": "icon/icon.png",
+      "48": "icon/icon.png"
+    },
+    "default_popup": "popup/popup.html",
+    "default_title": "CMS Attendance "
+  },
+  "permissions": ["tabs", "storage", "activeTab", "declarativeContent"],
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "0.0.0.1"
+}
